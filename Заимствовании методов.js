@@ -7,5 +7,8 @@ let obj = {
 };
 
 obj.join = Array.prototype.join;
+obj.forEach = Array.prototype.forEach;
 
 console.log(obj.join(', '));
+console.log('------------');
+obj.forEach( item => console.log(item) );
