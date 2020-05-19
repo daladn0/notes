@@ -1,0 +1,20 @@
+function wrap(target) {
+    return new Proxy(target, {
+        get(tg, prop, receiver) {
+            if( prop in tg ) {
+                return Reflect.get(tg, prop, receiver);
+            }
+
+            throw new Error('Error: there is no such a property!');
+        }
+    })
+}
+
+let user = {
+    name: 'John',
+};
+
+user = wrap(user);
+
+console.log(user.name);
+console.log(user.age);
